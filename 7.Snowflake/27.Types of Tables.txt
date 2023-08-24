@@ -1,0 +1,15 @@
+TYPES OF TABLE
+
+1.Permanent Table:
+
+	a.Time Travel retention period  0-90 days
+	b.Fail safe
+
+2.Transient Table
+	a.Time Travel retention period  0-1 day
+	b. No fail safe
+
+3.Temporary Table
+	a.Time Travel retention period  0-1 day
+	b.No fail safe
+	c.Exists only in the current session.Once worksheet or session is closed these table is also gone.

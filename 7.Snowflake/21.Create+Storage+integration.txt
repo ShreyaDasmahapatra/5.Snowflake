@@ -1,0 +1,26 @@
+But before doing the below task first see if the account perrmission is accountadmin or not.
+
+1. IAM>>Roles>>snowflake-access-role >>permission>>copy role arn
+
+2.And the arn in the below code.
+// Create storage integration object...(snowflake)
+
+create or replace storage integration s3_int
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = S3
+  ENABLED = TRUE 
+  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::516915275482:role/snowflake-access-role'
+
+//('s3://<your-bucket-name>/<your-path>/', 's3://<your-bucket-name>/<your-folder>/')
+  STORAGE_ALLOWED_LOCATIONS =('s3://snowflake-shreya/csv/', 's3://snowflake-shreya/json/')
+   COMMENT = 'This an optional comment' ;
+   
+   
+// See storage integration properties to fetch external_id so we can update it in S3 (snowflake)
+DESC integration s3_int;
+
+3.Copy property value for STORAGE_AWS_IAM_USER_ARN and STORAGE_AWS_EXTERNAL_ID from the above output and navigate to AWS S3.
+arn:aws:iam::940220757344:user/yvda0000-s
+
+IAM>>Roles>>snowflake-access-role >>Trust Relationships >> edit trust policy
+here in the code copy the above values to AWS and sts:ExternalId attribute respectively.>>update policy

@@ -1,0 +1,21 @@
+Create S3 bucket bucket to store data.(It has the looks and feels of a folder):
+
+Amazon S3 or Amazon Simple Storage Service is a service offered by Amazon Web Services that provides object storage 	through a web service interface. Amazon S3 uses the same scalable storage infrastructure that Amazon.com uses to run 	its e-commerce network.
+	**Bucket name should be unique
+	**We will go for North Virginia region, latest feature of AWS are first generaly published at this region also this location and the location in the snowflake should be same to reduce the data transfer cost.
+
+
+
+Configuring Snowflake-S3 Bucket connection
+
+1.Upload files to the folders of S3 bucket..csv and json.
+2.To set connection between bucket and snowflake we are required to create policies using IAM .
+
+a.IAM>>Roles>>Create Roles>>AWS Account >>Another AWS Account >> top right corner "Shreya" >> copy Account ID
+b.In the above page click on to  options>>require external id. and add dumy value like 00000 for now >>next >>search s3 and select  AWS S3 Full Access.>>next>> give name and description >> create role.
+
+c.IAM>>Roles>>snowflake-access-role >>Trust Relationships.....here u can seea json code that has attribute "sts:ExternalId": "00000", this is the dummy value which we have provided above.
+
+
+
+

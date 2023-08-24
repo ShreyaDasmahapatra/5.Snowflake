@@ -1,0 +1,10 @@
+What is SNOWPIPE?
+
+Once file is uploaded in the bucket it automatically loads the file and its a serverless feature which means we dont need to worry about virtualwarehouses snowflake will take care.
+
+STEPS
+
+1.Create Stage:Contains connection and the location to the external stage from which the data gets collected.
+2.Create and Test COPY Command.
+3.Create Pipe: will contain copy command
+4.Set S3 event notification to trigger pipe

@@ -1,0 +1,12 @@
+// Describe pipe
+DESC pipe employee_pipe;
+
+Copy the value of notification chanel attribute in the output from above query.
+
+1.Buckets>>snowflake-shreya>>properties>>Event notification>> create notification
+event name :snowflake notification
+prefix: csv/snowpipe  (path:since we are already in snowflake-shreya ...so we juct need csv/snowpipe to move to the folder.)
+All object create event.
+
+
+Destination : sqs queue , enter sqs que arn(paste the notification chanel value.)
